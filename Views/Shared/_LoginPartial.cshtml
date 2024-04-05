@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using InfnetMVC.ViewModels
+
+@model LoginViewModel
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+        <button type="submit" class="btn btn-danger">Sair</button>
+    </form>
+}
+else
+{
+    <form asp-controller="Account" asp-action="Login" method="get" class="form-inline">
+        <button type="submit" class="btn btn-primary">Fazer Login</button>
+    </form>
+}

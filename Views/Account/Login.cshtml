@@ -1,0 +1,39 @@
+﻿@using InfnetMVC.ViewModels
+
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <section>
+            <form id="login-form" method="post" class="needs-validation" novalidate>
+                <h2 class="card-title text-center mb-4">Faça login com sua conta</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert">Por favor, verifique os campos marcados e tente novamente.</div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder=" " required />
+                    <label asp-for="Email" class="form-label">Endereço de Email</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" placeholder=" " required />
+                    <label asp-for="Password" class="form-label">Senha</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
+                    <label class="form-check-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Fazer Login</button>
+                </div>
+                <p class="mt-4 text-center">
+                    Ainda não tem uma conta? <a href="/account/register">Registre-se aqui</a>.
+                </p>
+            </form>
+        </section>
+    </div>
+</div>

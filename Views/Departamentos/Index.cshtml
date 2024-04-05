@@ -1,0 +1,42 @@
+﻿@model IEnumerable<InfnetMVC.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Departamentos";
+}
+
+<h1 class="text-center">Departamentos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">&#43;</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Local)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepartamentoId" class="text-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.DepartamentoId" class="text-primary">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepartamentoId" class="text-danger">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
